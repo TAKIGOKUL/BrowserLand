@@ -1,0 +1,345 @@
+/* Use local fonts instead of remote URLs */
+
+@import url('fonts/orbitron/orbitron.css');
+@import url('fonts/titillium-web/titillium-web.css');
+@import url('fonts/ibm-plex-mono/ibm-plex-mono.css');
+body {
+    background: #000000 no-repeat center center fixed;
+    background-size: cover;
+}
+
+hr {
+    border: 1.5px solid;
+    border-radius: 1px;
+    border-color: var(--border);
+}
+.container {
+    display: flex;
+    /* Enable flexbox layout */
+    justify-content: space-between;
+    /* Distribute elements horizontally */
+}
+
+.noticeboard,
+.todo-container {
+    width: 45%;
+    /* Set width for each section (adjust as needed) */
+}
+/*----------------------------------------------------------------------------*/
+.todo-container {
+    text-align: center;
+    margin: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #17b41c;
+    color: rgb(189, 46, 46);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 10px 0;
+    padding: 10px;
+    color: #0DC701;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.delete-btn {
+    float: right;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+/* Main container for clock, search bar and bookmarks */
+
+.main-container {
+    width: 75%;
+    height: inherit;
+    margin: 50px auto 10px auto;
+    padding: 20px 30px 30px 30px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 7px;
+    border-color: var(--border);
+    background-color: #000000;
+    opacity: 100%;
+}
+
+/*----------------------------------------------------------------------------*/
+
+/* Clock */
+ .noticeboard {
+     width: 100%;
+     max-width: 45%;
+     margin: 50px auto;
+     padding: 20px;
+     background-color: #000000;
+     border: 2px solid #0DC701;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     border-radius: 8px;
+ }
+
+ .noticeboard h1 {
+    font-family: 'IBM Plex Mono', monospace;
+     text-align: center;
+     color: #0DC701;
+     margin-bottom: 20px;
+ }
+
+ .noticeboard ul {
+     list-style-type: none;
+     padding: 0;
+ }
+
+ .noticeboard ul li {
+     margin: 10px 0;
+ }
+
+ .noticeboard ul li a {
+     text-decoration: none;
+     color:#67d400d5;
+     font-size: 16px;
+     transition: color 0.3s;
+ }
+
+ .noticeboard ul li a:hover {
+     color: #33cf1e;
+ }
+
+ .noticeboard ul li a:visited {
+        text-align: right;
+     color: #1f0101;
+ }
+
+.form-group {
+    
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.form-group input {
+    background-color: var(--title-background);
+    flex: 1;
+    width: auto;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
+
+.form-group button {
+    padding: 10px 15px;
+    font-size: 14px;
+     color: #0DC701;
+    background-color: #0DC701;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #004080;
+}
+
+.delete-btn {
+    margin-right: 10px;
+    text-align: right;
+    color: #000000;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.delete-btn:hover {
+    text-decoration: underline;
+}
+
+
+#clock {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 50px;
+    color: #0cc700;
+    text-align: center;
+}
+
+/*----------------------------------------------------------------------------*/
+
+/* Search bar */
+
+.search-bar {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+form {
+    background-color: #e9d4d42a ;
+    width: 100%;
+    height: 44px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.custom-input {
+    all: unset;
+    font: 16px system-ui;
+    height: 100%;
+    width: 100%;
+    padding: 6px 10px;
+    color: #7dff74;
+    caret-color: #0cc700;
+}
+
+.search-input {
+    padding: 6px 15px;
+}
+
+svg {
+    color: #fff;
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+    padding: 10px;
+}
+
+.default-button {
+    color: #fff;
+    all: unset;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+}
+
+::placeholder {
+    color: var(--input-placeholder);
+    font-family: 'Titillium Web', sans-serif;
+    opacity: 0.7;
+}
+
+/* Center vertically and set fixed width for the image inside it.
+ * Justify image to the right + padding so it stays in a fixed position */
+
+.prompt-button {
+    display: flex;
+    align-content: center;
+    justify-content: right;
+    padding-right: 15px;
+}
+
+.prompt-button img {
+    width: 24px;
+}
+
+/*----------------------------------------------------------------------------*/
+
+/* Bookmarks */
+
+.bookmarks {
+    display: flex;
+    height: inherit;
+}
+
+.list-column {
+    background-color: var(--column-background);
+    text-align: center;
+    width: 500px;
+    width: -moz-available;
+    height: inherit;
+    margin-right: 1%;
+    margin-left: 1%;
+    float: left;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
+    border-color: var(--border);
+}
+
+.list-title {
+    background-color: var(--title-background);
+    color: var(--title-text);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 4px;
+    font-size: 21px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.list-items {
+    font-size: 17px;
+    font-family: 'Titillium Web', sans-serif;
+    padding: 15px;
+    padding-top: 10px;
+}
+
+a {
+    color: var(--highlight);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--highlight-dark);
+}
+
+/*----------------------------------------------------------------------------*/
+
+/* Scroll bar */
+
+:root {
+    scrollbar-color: #ff1414 var(--highlight-dark);
+    scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--highlight-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #868686;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ebfa15;
+}
+
+/*----------------------------------------------------------------------------*/
+
+/* Buttons and links */
+
+.embed-button {
+    font-size: 13px;
+    color: #fd5252;
+    text-decoration: underline;
+    text-decoration-color: #c7da1e;
+}
+
+.embed-button:hover {
+    cursor: pointer;
+    color: #ebfa15
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link rel="icon" href="./img/icon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/search-engines.css">
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/movable-window.css">
+    <script>
+           function addLink() {
+                const urlInput = document.getElementById('url');
+                const textInput = document.getElementById('text');
+                const url = urlInput.value;
+                const text = textInput.value;
+
+                if (url && text) {
+                    const ul = document.querySelector('.noticeboard ul');
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.target = '_blank';
+                    a.textContent = text;
+
+                    const deleteBtn = document.createElement('a');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.className = 'delete-btn';
+                    deleteBtn.href = '#';
+                    deleteBtn.onclick = function (e) {
+                        e.preventDefault();
+                        ul.removeChild(li);
+                    };
+
+                    li.appendChild(a);
+                    li.appendChild(deleteBtn);
+                    ul.appendChild(li);
+
+                    urlInput.value = '';
+                    textInput.value = '';
+                }
+            }
+
+            function addNotice() {
+                const textInput = document.getElementById('todo-text');
+                const text = textInput.value.trim();
+
+                if (text) {
+                    const ul = document.getElementById('todo-list');
+                    const li = document.createElement('li');
+                    li.textContent = text;
+
+                    const deleteBtn = document.createElement('a');
+                    deleteBtn.textContent = ' Delete';
+                    deleteBtn.className = 'delete-btn';
+                    deleteBtn.href = '#';
+                    deleteBtn.onclick = function (e) {
+                        e.preventDefault();
+                        ul.removeChild(li);
+                    };
+
+                    li.appendChild(deleteBtn);
+                    ul.appendChild(li);
+
+                    textInput.value = '';
+                }
+            }
+    </script>
+</head>
+
+<body>
+    <!-------------------------- Movable window --------------------------->
+    <div id="movable-window">
+        <div id="movable-window-drag-region">
+            <p id="movable-window-title">Embed player</p>
+            <a id="movable-window-close" onclick="hideMovableWindow()">
+             #fffffff
+                </a>
+        </div>
+        <div id="embed-video">
+            <p>No video to display.</p>
+        </div>
+    </div>
+
+    <!-------------------------- Main container --------------------------->
+    <div class="main-container">
+
+        <!-- Clock and search bar -->
+        <div id="clock"></div>
+        <div class="search-bar">
+            <form role="search" id="search-form" oninput="checkSearchEngine()">
+                <div id="search-engine-icon"></div>
+                <div id="search-engine-container"></div>
+                <input type="search" class="custom-input search-input" id="search-query" name="q" placeholder="Search..." aria-label="Search" />
+                <button class="default-button prompt-button">
+                        <img src="./img/search.svg" class="undragable" draggable="false">
+                    </button>
+            </form>
+        </div>
+
+        <!-- Bookmarks -->
+        <div class="bookmarks">
+            <div class="list-column">
+                <div class="list-title">Social</div>
+                <div class="list-items">
+                    <a href="https://web.whatsapp.com">Whatsapp</a><br>
+                                        <a href="https://web.telegram.org/k/">Telegram</a><br>
+
+                    <hr>
+                    <a href="https://www.youtube.com/">YouTube</a><br>
+                    <a href="https://open.spotify.com/collection/tracks">Spotify</a><br>
+                    <hr><a href="https://mail.google.com/mail/u/0/">Gmail</a><br>
+
+                    <a href="https://news.ycombinator.com/">Netflix</a><br>
+                    
+                    <hr><a href="https://www.linkedin.com/feed/">LinkedIn</a><br>
+                    
+                    <a href="https://www.instagram.com/">Instagram</a><br>
+                </div>
+            </div>
+            <div class="list-column">
+                <div class="list-title">Tech</div>
+                <div class="list-items">
+                    <a href="https://github.com/">Github</a><br>
+                     <a href="https://www.figma.com/">Figma</a><br>
+
+                    <hr>
+                    <a href="https://chatgpt.com/">Chatgpt</a><br>
+                    <a href="https://gemini.google.com/app">Gemini</a><br>
+                    <hr>
+                    <a href="https://github.com/codespaces/">Codespaces</a><br>
+                    <a href="https://www.netlify.com/">Netlify</a><br>
+                <hr><a href="https://www.notion.so/15b8beaad147807ab16eed19de14ab6d?v=15b8beaad14780f3a09a000c6e6e141c">Notion</a><br>
+                
+                <a href="https://meet.google.com/cir-wqvj-kkv">G-Meet</a><br>
+                </div>
+            </div>
+            <div class="list-column">
+                <div class="list-title">Wikis</div>
+                <div class="list-items">
+                    <a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a><br>
+                    
+                    <a href="https://www.perplexity.ai/">Perplexity Search </a><br>
+                    <hr>
+                    <a href="https://docs.flutter.dev/">Flutter docs</a><br>
+                    <a href="https://leetcode.com/">Leetcode</a><br>
+                    <hr>
+                    <a href="https://www.hackerrank.com/">Hackerrank</a><br>
+                    <a href="https://roadmap.sh/">Roadmap</a><br>
+                    <hr><a href="https://www.guru99.com/linux-commands-cheat-sheet.html">Linux commands</a><br>
+
+                    <a href="https://bloggie.vipinv.me/posts/git-cheatsheet">Git-cheatsheet</a><br>
+                </div>
+                
+            </div>
+            
+        </div>
+<div class="container">
+    <div class="noticeboard">
+        <h1>Noticeboard</h1>
+        <div class="form-group">
+            <input type="text" id="text" placeholder="Text">
+        </div>
+                <div class="form-group">
+            <input type="url" id="url" placeholder="URL">
+            <button onclick="addLink()">Add</button>
+        </div>
+        <ul>
+                        <li>
+                            <a href="https://www.example1.com" target="_blank">Important Update 1</a>
+                            <a href="#" class="delete-btn" onclick="this.parentElement.remove()">Delete</a>
+                        </li>
+                       
+        </ul>
+    </div>
+    
+<div class="noticeboard">
+    <h1>Todo List</h1>
+    <div class="form-group">
+        <input type="text" id="todo-text" placeholder="Enter your task">
+        <button onclick="addNotice()">Add</button>
+    </div>
+    <ul id="todo-list"></ul>
+</div>
+</div>
+</div>
+</body>
+
+
+
+
+  
+
+    <!-------------------------- Todo container --------------------------->
+        
+    <!----------------------- Settings container -------------------------->
+    <!-- <div id="settings-main-container">
+        <div id="settings-background"></div>
+        <div id="settings-tab-container">
+            <div class="settings-title">Settings</div>
+            <div class="setting-item">
+                <div class="setting-item-text">Use icons for search engines</div>
+                <input id="use-se-icons" class="setting-checkbox" type="checkbox" />
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Capitalize todo items by default</div>
+                <input id="capitalize-todos" class="setting-checkbox" type="checkbox" />
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Shorten links by default</div>
+                <input id="shorten-links" class="setting-checkbox" type="checkbox" />
+            </div>
+            <hr>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the background</div>
+                <div>
+                    <button class="setting-button" onclick="changeCustomBackground(true)">Apply</button>
+                    <button class="setting-button" onclick="changeCustomBackground(false)">Reset</button>
+                    <input id="col-background" class="setting-color" type="color" />
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the highlight color</div>
+                <div>
+                    <button class="setting-button setting-apply-css">Apply</button>
+                    <button class="setting-button setting-reset-css">Reset</button>
+                    <input id="css-col-highlight" class="setting-color" type="color" />
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the highlight hover color</div>
+                <div>
+                    <button class="setting-button setting-apply-css">Apply</button>
+                    <button class="setting-button setting-reset-css">Reset</button>
+                    <input id="css-col-highlight-dark" class="setting-color" type="color" />
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the highlight darker color</div>
+                <div>
+                    <button class="setting-button setting-apply-css">Apply</button>
+                    <button class="setting-button setting-reset-css">Reset</button>
+                    <input id="css-col-highlight-darker" class="setting-color" type="color" />
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the border color</div>
+                <div>
+                    <button class="setting-button setting-apply-css">Apply</button>
+                    <button class="setting-button setting-reset-css">Reset</button>
+                    <input id="css-col-border" class="setting-color" type="color" />
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the input text color</div>
+                <div>
+                    <button class="setting-button setting-apply-css">Apply</button>
+                    <button class="setting-button setting-reset-css">Reset</button>
+                    <input id="css-col-input-text" class="setting-color" type="color" />
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the placeholder color</div>
+                <div>
+                    <button class="setting-button setting-apply-css">Apply</button>
+                    <button class="setting-button setting-reset-css">Reset</button>
+                    <input id="css-col-placeholder" class="setting-color" type="color" />
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the title color</div>
+                <div>
+                    <button class="setting-button setting-apply-css">Apply</button>
+                    <button class="setting-button setting-reset-css">Reset</button>
+                    <input id="css-col-title-text" class="setting-color" type="color" />
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the main section background</div>
+                <div>
+                    <button class="setting-button setting-apply-css">Apply</button>
+                    <button class="setting-button setting-reset-css">Reset</button>
+                    <input id="css-col-background" class="setting-color" type="color" />
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the column background</div>
+                <div>
+                    <button class="setting-button setting-apply-css">Apply</button>
+                    <button class="setting-button setting-reset-css">Reset</button>
+                    <input id="css-col-column-background" class="setting-color" type="color" />
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-item-text">Change the search engine background color</div>
+                <div>
+                    <button class="setting-button setting-apply-css">Apply</button>
+                    <button class="setting-button setting-reset-css">Reset</button>
+                    <input id="css-col-se-background" class="setting-color" type="color" />
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-------------------------- Settings button -------------------------->
+    <!-- <div class="settings-button-container">
+        <button id="settings-button" class="default-button">
+                <img src="./img/settings.svg" class="undragable" draggable="false">
+            </button>
+    </div> -->
+
+    <!----------------------------- Scripts ------------------------------->
+    <script type="text/javascript" src="js/settings.js"></script>
+    <script type="text/javascript" src="js/settings-window.js"></script>
+    <script type="text/javascript" src="js/movable-window.js"></script>
+    <script type="text/javascript" src="js/clock.js"></script>
+    <script type="text/javascript" src="js/search-bar.js"></script>
+    <script type="text/javascript" src="js/todo.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+/* Unlike the text mode, this main container has the styles and will be hidden.
+ * We use align-content because the display will be changed to flex */
+
+#search-engine-icon {
+    display: none;
+    align-content: center;
+    padding-left: 15px;
+    filter: grayscale(100%);
+}
+
+/* The main container, will be hidden depending on the js */
+
+#search-engine-container {
+    display: none;
+    padding-left: 10px;
+    max-width: 150px;
+}
+
+/* Default styles for the search engine text */
+
+.search-engine-text {
+    width: max-content;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 15px;
+    padding: 1px 6px;
+    color: var(--se-text);
+    background: var(--se-background);
+    border-style: solid;
+    border-radius: 6px;
+    /* Change these 2 values to add a border */
+    border-width: 0px;
+    border-color: #fff;
+}

@@ -1,0 +1,126 @@
+/*----------------------------------------------------------------------------*/
+
+/* Todo container for "Add item" bar and the todo items */
+
+#todo-container {
+    width: 80%;
+    height: auto;
+    margin: 5px auto 40px auto;
+    padding: 5px 30px 5px 30px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 7px;
+    border-color: var(--border);
+    background-color: #000000;
+    opacity: 97%;
+}
+
+/*----------------------------------------------------------------------------*/
+
+/* Todo title and input */
+
+#todo-title {
+    padding: 5px;
+    font-size: 25px;
+    font-family: 'Titillium Web', sans-serif;
+    text-align: center;
+    color: var(--title-text);
+}
+
+#todo-form {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#todo-input {
+    padding: 0px 15px;
+}
+
+/*----------------------------------------------------------------------------*/
+
+/* Todo list */
+
+#todo-items {
+    padding: 15px 5px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.todo-items-fill {
+    list-style-type: none;
+    margin-top: 10px;
+    padding: 10px 5px 13px 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
+    border-color: var(--border);
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    color: #f2f2f2;
+    font-size: 15px;
+    font-family: 'Titillium Web', sans-serif;
+    border-style: solid;
+    border-bottom-style: none;
+    border-width: 1px;
+    border-color: var(--border);
+}
+
+.todo-item:first-child {
+    border-style: solid;
+    border-bottom-style: none;
+    border-width: 1px;
+    border-color: var(--border);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.todo-item:last-child {
+    border-style: solid;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: var(--border);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.todo-text-container {
+    flex: 1;
+}
+
+.todo-text {
+    width: 500px;
+    overflow: clip;
+}
+
+.checkbox {
+    flex: 1;
+    margin-right: 5px;
+    height: 10px;
+    max-width: 10px;
+    background: #ffffff center / contain no-repeat;
+}
+
+.checkbox:hover {
+    cursor: pointer;
+    /* A bit buggy after clicking */
+}
+
+.delete-button {
+    
+    flex: 1;
+    margin-left: 5px;
+    height: 10px;
+    max-width: 10px;
+       /* Not really centered but 23 gets blurry in firefox */
+    border: none;
+    outline: none;background: #ffffff center / contain no-repeat;
+}
+
+.checked {
+    text-decoration: line-through;
+}
